@@ -1,0 +1,237 @@
+// ==== Variables ==== //
+
+$primary_color: #21c35d;
+
+// ==== common styles ==== //
+
+.canvas {
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: $primary_color;
+  cursor: grab;
+}
+
+h2 {
+  font-weight: 500;
+  margin: 0 0 15px 0;
+  font-size: 1.35em;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.btn {
+  border: none;
+  color: #fff;
+  padding: 15px 10px;
+  min-width: 200px;
+  border-radius: 50px;
+}
+.btn-primary {
+  background-color: $primary_color;
+  transition: all 0.3s;
+  &:hover {
+    background-color: lighten($color: $primary_color, $amount: 5%);
+  }
+}
+// ========================= //
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #1d1d1f;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0px auto;
+  background-color: #ffffff;
+  padding-bottom: 10em;
+}
+.navigation {
+  height: 80px;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  .logo {
+    img {
+      width: 100px;
+    }
+  }
+}
+
+.product_details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+.image_section {
+  grid-column: 1 / span 2;
+  border-radius: 15px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    border-radius: 20px;
+    max-height: 500px;
+  }
+}
+
+.selections {
+  border-radius: 10px;
+  .input_selections {
+    margin-bottom: 60px;
+
+    h2 {
+      font-weight: 500;
+      margin: 0 0 5px 0;
+    }
+    .input_fields {
+      background-color: #f5f5f7;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      label {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .field {
+        position: relative;
+        input[type="number"] {
+          width: calc(100% - 20px);
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          &:focus {
+            border-color: #21c35d;
+            outline: none;
+          }
+        }
+        span {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-12%);
+        }
+      }
+    }
+  }
+
+  .material_selection {
+    .material_list {
+      .item {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: 1px solid #d2d2d7;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        padding: 20px 15px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+        &.active {
+          background-color: #dfffeb;
+          border: 1px solid 1px solid #7cffac;
+        }
+        &.in_active {
+          background-color: transparent;
+          border: 1px solid #d2d2d7;
+        }
+        &:hover {
+          border-color: $primary_color;
+          transform: scale(1.02);
+        }
+        .item_desc {
+          margin-left: 10px;
+          span.label {
+            background-color: $primary_color;
+            color: #fff;
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            border-radius: 5px;
+            padding: 5px 15px;
+            &.active {
+              display: block;
+            }
+            &.in_active {
+              display: none;
+            }
+          }
+          .name {
+            font-weight: 600;
+            font-size: 1em;
+            margin-bottom: 10px;
+          }
+          .details {
+            ul {
+              li {
+                padding-bottom: 5px;
+                &::before {
+                  content: "\2713";
+                  display: inline-block;
+                  width: 1em;
+                  margin-right: 0.5em;
+                  color: $primary_color;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.materials {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  transition: all 0.5s;
+  gap: 30px;
+  .material_item {
+    overflow: hidden;
+    grid-column: 1/2;
+    img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.5s;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-in.active {
+  opacity: 1;
+}
